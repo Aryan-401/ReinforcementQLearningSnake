@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import torch
 import random
 import numpy as np
@@ -51,6 +52,8 @@ def train():
             mean_score = total_score / agent.n_games
             plot_mean_scores.append(mean_score)
             plot(plot_scores, plot_mean_scores)
+            plt.savefig('plot.png')
+
 
 
 class Agent:
@@ -126,7 +129,7 @@ class Agent:
         self.trainer.train_step(state, action, reward, next_state, done)
 
     def get_action(self, state):
-        self.epsilon = random.randint(80, 200) - self.n_games
+        self.epsilon = 140 - self.n_games
         final_move = [0, 0, 0]
         if random.randint(0, 350) < self.epsilon:
             move = random.randint(0, 2)
