@@ -28,7 +28,7 @@ class QTrainer:
     def __init__(self, model, lr, gamma):
         self.lr = lr
         self.gamma = gamma
-        self.model = Linear_QNet(11, 256, 3)
+        self.model = model
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.lr)
         self.criterion = nn.MSELoss()
 
