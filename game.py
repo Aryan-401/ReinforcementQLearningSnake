@@ -28,7 +28,7 @@ BLOCK_SIZE = 20
 SPEED = 20
 
 
-class SnakeGameAgent:
+class SnakeGame:
 
     def __init__(self, w=640, h=480):
         self.w = w
