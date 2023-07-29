@@ -4,7 +4,7 @@ from IPython import display
 plt.ion()
 
 
-def plot(scores, mean_scores):
+def plot(scores, mean_scores, n_games):
     plt.clf()
     plt.title('Training...')
     plt.xlabel('Number of Games')
