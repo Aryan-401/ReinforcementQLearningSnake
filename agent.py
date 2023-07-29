@@ -54,6 +54,22 @@ def train():
             plot(plot_scores, plot_mean_scores, n_games=agent.n_games)
 
 
+def play_round(filename):
+    agent = Agent()
+    agent.model.load(filename)
+    agent.n_games = 100000  # huge number to avoid randomness
+    game = SnakeGame()
+    while True:
+        state_old = agent.get_state(game)
+        final_move = agent.get_action(state_old)
+        reward, done, score = game.play_step(final_move)
+        state_new = agent.get_state(game)
+        agent.train_short_memory(state_old, final_move, reward, state_new, done)
+        agent.remember(state_old, final_move, reward, state_new, done)
+        if done:
+            print(f'Score {score}')
+            quit()
+
 
 class Agent:
     def __init__(self):
@@ -143,4 +159,5 @@ class Agent:
 
 
 if __name__ == '__main__':
-    train()
+    # train()  # uncomment to train for yourself
+    play_round('model_194_79.pth')
