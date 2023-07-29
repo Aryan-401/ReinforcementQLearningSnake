@@ -13,7 +13,6 @@ class Linear_QNet(nn.Module):
     def forward(self, x):
         x = F.relu(self.linear1(x))
         x = self.linear2(x)
-        x = F.softmax(x, dim=1)  # softmax activation function
         return x
 
     def save(self, unique_id):
