@@ -6,16 +6,21 @@ This is a simple implementation of the classic game Snake, where the player cont
 
 ### Prerequisites
 This project requires Python 3.6 or later. The [following](./requirements.txt) packages are also required to be installed via 
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ### Usage
 To train the agent, run
-```
+```bash
 python agent.py
 ```
 with the line `train()` uncommented in the `main()` function. To test the agent, run the same command with `play_round(filename)` uncommented instead. The `filename` argument should be the `.pth` file containing the trained model.
+
+To run the Human Playable version of the game, run
+```bash
+python user_playable_game.py
+```
 
 ## Graph showing the average score per episode
 ![graph](./plots/691.png)
